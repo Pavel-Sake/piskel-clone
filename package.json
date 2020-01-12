@@ -1,0 +1,25 @@
+{
+  "name": "pavel-sake-rs2019q3",
+  "version": "1.0.0",
+  "description": "Private repository for @pavel-sake",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/pavel-sake-RS2019Q3.git"
+  },
+  "author": "Pavel Sakovich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/pavel-sake-RS2019Q3/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/pavel-sake-RS2019Q3#readme",
+  "dependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}

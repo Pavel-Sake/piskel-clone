@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>editor</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="editor">
+  <div class="editor__header">
+    <div class="editor__headerContainer">
+      <button class="editor__headerButton editor__headerButton--menu" type="button">
+        <img class="editor__headerButtonImg" src="assets/menu-button.svg">
+      </button>
+      <p class="editor__headerTitle">Piskel-clone</p>
+    </div>
+    <button class="editor__headerButton" type="button">
+      <img class="editor__headerButtonImg" src="assets/settings-button.svg">
+    </button>
+  </div>
+  <div class="editor__content">
+
+    <div class="editor__sizePen">
+      <p class="editor__sizePenName">Pen size</p>
+      <div class="editor__sizePenButtons" id="sizePenButtons">
+        <button class="editor__sizePenButton" type="button" data-size="1">1x</button>
+        <button class="editor__sizePenButton" type="button" data-size="2">2x</button>
+        <button class="editor__sizePenButton" type="button" data-size="3">3x</button>
+        <button class="editor__sizePenButton" type="button" data-size="4">4x</button>
+      </div>
+    </div>
+
+    <div class="editor__action editor__placement" id="editor__placement">
+      <button class="editor__actionItem" id="editor__actionItem--floodFill" type="button">
+        <img class="editor__actionItemImage" src="assets/paint-bucket.svg">
+        Paint bucket
+      </button>
+      <button class="editor__actionItem" id="editor__actionItem--pencil" type="button">
+        <img class="editor__actionItemImage" src="assets/pencil.svg">
+        pencil
+      </button>
+
+      <div class="editor__actionItemContainer">
+        <input class="editor__actionItem editor__actionItem--chooseColor--input" id="editor__actionItem--chooseColor"
+               type="color" value="#000000" list>
+        <button class="editor__actionItem editor__actionItem--chooseColor" id="editor__actionItem--chooseColorButton">
+          <img class="editor__actionItemImage" src="assets/pipette-.svg">
+          Choose color
+        </button>
+      </div>
+
+      <button class="editor__actionItem" id="editor__actionItem--stroke" type="button">
+        <img class="editor__actionItemImage" src="assets/stroke-too-line.svg">
+        Stroke
+      </button>
+
+      <button class="editor__actionItem" id="eraser" type="button">
+        <img class="editor__actionItemImage" src="assets/eraser.svg">
+        Eraser
+      </button>
+
+      <button class="editor__actionItem" id="paintAllPixels" type="button">
+        <img class="editor__actionItemImage" src="assets/allPixels.svg">
+        Paint all pixels
+      </button>
+
+      <button class="editor__actionItem" id="editor__actionItem--transform" type="button" disabled>
+        <img class="editor__actionItemImage" src="assets/transform.svg">
+        Transform
+      </button>
+    </div>
+
+    <div class="editor__previewListWrapper">
+      <div class="editor__previewListScroll">
+        <ul class="editor__previewListUl" id="previewListUl">
+          <li class="editor__previewListLi" data-counter="0">
+            <div class="editor__previewListLiItem">
+              <canvas class="editor__canvasFrame" id="canvasFrame" width="128px" height="128px"></canvas>
+            </div>
+            <button class="previewListItem editor__previewListButton--delete buttonDisabled" type="button"
+                    data-property="delete">
+              <img class="editor__previewListButtonImg" src="assets/basket.svg">
+            </button>
+            <button class="previewListItem editor__previewListButton--copy" type="button" data-property="copy">
+              <img class="editor__previewListButtonImg" src="assets/duplicate.svg">
+            </button>
+            <span class="previewListItem previewListItem--number previewListNumber"></span>
+          </li>
+        </ul>
+        <div class="editor__previewListAddFrame">
+          <button class="editor__previewListAddFrameButton" id="addFrameButton" type="button">Add frame</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="editor__animation">
+      <canvas class="editor__animationCanvas" id="canvasAnimation" width="128" height="128"></canvas>
+      <p class="editor__animationFps" id="animationFps"></p>
+      <input class="editor__animationRange" type="range" min="1" max="24" step="1" value="4" id="rangeInput">
+    </div>
+    <div class="editor__area">
+      <canvas class="editor__canvas" id="canvas" width="512" height="512"></canvas>
+    </div>
+
+    <div class="editor__size">
+      <select class="editor__sizeSelect" id="sizeSelect">
+        <option class="editor__sizeSelectItem" value="32">32</option>
+        <option class="editor__sizeSelectItem" value="64">64</option>
+        <option class="editor__sizeSelectItem" selected value="128">128</option>
+      </select>
+    </div>
+
+    <div class="editor__color editor__placement">
+      <button class="editor__colorItem editor__colorItem--current" id="editor__colorItem--current" type="button">Current
+        color
+      </button>
+      <button class="editor__colorItem editor__colorItem--prev" id="editor__colorItem--prev" type="button">Prev color
+      </button>
+    </div>
+    <div class="editor__areaClear">
+      <button class="editor__areaClearButton" id="clearButton" type="button">clear the field</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script type="module" src="library.js"></script>
+<script type="module" src="main.js"></script>
+
+</body>
+</html>

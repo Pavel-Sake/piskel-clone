@@ -1,0 +1,441 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.editor {
+    width: 100%;
+    max-width: 1440px;
+    padding: 20px;
+}
+
+.editor__header {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid #999292;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editor__headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.editor__headerTitle {
+    margin-left: 60px;
+
+    font-size: 24px;
+}
+
+.editor__headerButton {
+    width: 30px;
+    height: 30px;
+    border: none;
+
+    background: none;
+}
+
+.editor__headerButtonImg {
+    width: 20px;
+    height: 20px;
+
+    transition: transform 0.2s;
+}
+
+.editor__headerButtonImg:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+
+}
+
+.editor__content {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 120px 2fr 1fr;
+    grid-template-rows: 10% 2fr 1fr;
+    grid-gap: 15px;
+    grid-template-areas:
+            "penSize previewList area area animation"
+    "action previewList area area animation"
+    "color previewList area area size"
+    ". previewList areaClear areaClear ."
+}
+
+.editor__sizePen {
+    grid-area: penSize;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.editor__sizePenButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.editor__sizePenButton {
+    padding: 2px 15px;
+    margin-left: 5px;
+
+    background: #3ebb25;
+    border-radius: 5px;
+    border: none;
+
+    transition: background-color 0.3ms;
+}
+
+.editor__sizePenButton:hover {
+    cursor: pointer;
+    background: #31951e;
+}
+
+.editor__action {
+    grid-area: action;
+}
+
+.editor__animation {
+    grid-area: animation;
+    text-align: right;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.editor__animationCanvas {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 5px;
+
+    background: #9da0a4;
+}
+
+.editor__animationFps {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.editor__area {
+    width: 100%;
+    height: 100%;
+
+    grid-area: area;
+
+    text-align: center;
+}
+
+.editor__size {
+    grid-area: size;
+}
+
+.editor__sizeSelect {
+    padding: 10px;
+    border: 1px solid grey;
+
+    border-radius: 5px;
+
+    transition: all 0.3s;
+}
+
+.editor__sizeSelect:hover,
+.editor__sizeSelect:focus {
+    border-color: #8c3a1b;
+    cursor: pointer;
+}
+
+.editor__sizeSelectItem {
+    border-radius: 8px;
+}
+
+.editor__size {
+    grid-area: size;
+}
+
+.editor__color {
+    grid-area: color;
+}
+
+.editor__placement {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    text-transform: uppercase;
+}
+
+.editor__action {
+    box-shadow: 0px 0px 4px 0px black;
+    background: white;
+}
+
+.editor__actionItem {
+    width: 100%;
+
+    margin-bottom: 0;
+    padding: 10px 10px 10px 10px;
+    border-radius: 0;
+    border: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    text-align: left;
+    text-transform: uppercase;
+
+    background: white;
+    transition: 0.3s;
+}
+
+.editor__actionItem:hover {
+    background: #ababab;
+    cursor: pointer;
+}
+
+.editor__actionItem:disabled {
+    opacity: 0.4;
+}
+
+.editor__actionItem--active {
+    background: #bfbfbf;
+}
+
+.editor__actionItem--Js {
+    background: #bfbfbf;
+    border-color: grey;
+
+    cursor: pointer;
+}
+
+.editor__actionItemImage {
+    width: 25px;
+    height: 25px;
+    margin-right: 40px;
+}
+
+.editor__actionItemContainer {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    background: grey;
+}
+
+.editor__actionItem--chooseColor--input {
+    display: none;
+
+    position: absolute;
+    z-index: 2;
+
+    width: 263px;
+    height: 45px;
+    opacity: 0;
+}
+
+.editor__actionItem--chooseColor--input--active {
+    display: block;
+}
+
+.editor__previewListWrapper {
+    grid-area: previewList;
+
+    width: 100%;
+    height: 600px;
+    overflow: auto;
+}
+
+.editor__previewListUl {
+    list-style-type: none;
+}
+
+.editor__previewListLi {
+    position: relative;
+    width: 100px;
+    height: 100px;
+
+    margin-bottom: 5px;
+
+    border: 1px solid gray;
+}
+
+.activeJs {
+    border: 1px solid black;
+}
+
+.editor__canvasFrame {
+    width: 100%;
+    height: 100%;
+
+    background: #9da0a4;
+}
+
+.editor__previewListAddFrame {
+    width: 100%;
+}
+
+.editor__previewListAddFrameButton {
+    width: 100%;
+    padding: 5px;
+
+    border: 3px solid black;
+    border-radius: 5px;
+
+    transition: background-color 0.3s;
+}
+
+.editor__previewListAddFrameButton:hover {
+    cursor: pointer;
+    background: #b2b2b2;
+}
+
+.editor__colorItem {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 5px;
+    padding: 10px 5px 10px 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+
+    text-align: left;
+    text-transform: uppercase;
+
+    transition: 0.3s;
+}
+
+.previewListItem {
+    position: absolute;
+
+    padding: 2px;
+
+    border-radius: 3px;
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #408c31;
+    transition: transform 0.3s;
+}
+
+.previewListItem:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.buttonDisabled {
+    display: none;
+}
+
+.editor__previewListButton--delete {
+    top: 2px;
+    right: 2px;
+}
+
+.editor__previewListButtonImg {
+    width: 15px;
+    height: 15px;
+}
+
+.editor__previewListButton--copy {
+    bottom: 2px;
+    right: 2px;
+}
+
+.editor__previewListButton--move {
+    bottom: 2px;
+    left: 2px;
+}
+
+.previewListItem--number {
+    top: 2px;
+    left: 2px;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+}
+
+.editor__colorItem:hover,
+.editor__colorItem:focus {
+    border-color: #646464;
+    color: #646464;
+
+    cursor: pointer;
+}
+
+.editor__colorItem--current {
+    background: linear-gradient(to right, green 20%, white 20%);
+}
+
+.editor__colorItem--prev {
+    background: linear-gradient(to right, darkmagenta 20%, white 20%);
+}
+
+.editor__canvas {
+    width: 512px;
+    height: 512px;
+    border: 1px solid grey;
+
+    background: grey;
+}
+
+.editor__areaClear {
+    grid-area: areaClear;
+
+    text-align: center;
+}
+
+.editor__areaClearButton {
+    padding: 5px 15px;
+
+    border: none;
+    border-radius: 5px;
+    background: #597d6e;
+
+    transition: background-color 0.3s;
+}
+
+.editor__areaClearButton:hover {
+    cursor: pointer;
+    background: #476458;
+}
+
+

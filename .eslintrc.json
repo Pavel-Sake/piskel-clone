@@ -1,0 +1,13 @@
+{
+  "extends": "airbnb-base",
+  "rules": {},
+  "globals": {
+    "document": true,
+    "window": true,
+    "localStorage": true,
+    "Image": true,
+    "fetch": true,
+    "alert": true,
+    "requestAnimationFrame": true
+  }
+}
